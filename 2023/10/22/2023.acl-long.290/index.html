@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="WikiHowQA: A Comprehensive Benchmark for Multi-Document Non-Factoid Question Answering 论文地址：https:&#x2F;&#x2F;aclanthology.org&#x2F;2023.acl-long.290.pdf 项目地址：WikiHowNFQA (lurunchik.github.io) 前言回答非事实性问题（Answering n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/10/22/2023.acl-long.290/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="WikiHowQA: A Comprehensive Benchmark for Multi-Document Non-Factoid Question Answering 论文地址：https:&#x2F;&#x2F;aclanthology.org&#x2F;2023.acl-long.290.pdf 项目地址：WikiHowNFQA (lurunchik.github.io) 前言回答非事实性问题（Answering n">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006115350531.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150501552.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006152722768.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006153930918.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006160330752.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150542764.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150243053.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006201225807.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006202256305.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006205856371.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006214040405.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231007103559792.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231007110413872.png">
+<meta property="og:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006214040405.png">
+<meta property="article:published_time" content="2023-10-22T14:38:47.267Z">
+<meta property="article:modified_time" content="2023-10-11T09:59:57.995Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="c:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006115350531.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-22 22:38" pubdate>
+          2023年10月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          64 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="WikiHowQA-A-Comprehensive-Benchmark-for-Multi-Document-Non-Factoid-Question-Answering"><a href="#WikiHowQA-A-Comprehensive-Benchmark-for-Multi-Document-Non-Factoid-Question-Answering" class="headerlink" title="WikiHowQA: A Comprehensive Benchmark for Multi-Document Non-Factoid Question Answering"></a>WikiHowQA: A Comprehensive Benchmark for Multi-Document Non-Factoid Question Answering</h1><p><img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006115350531.png" srcset="/img/loading.gif" lazyload alt="image-20231006115350531"></p>
+<p>论文地址：<a target="_blank" rel="noopener" href="https://aclanthology.org/2023.acl-long.290.pdf">https://aclanthology.org/2023.acl-long.290.pdf</a></p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://lurunchik.github.io/WikiHowNFQA/">WikiHowNFQA (lurunchik.github.io)</a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>回答非事实性问题（Answering non-factoid questions (NFQA)）是一项具有挑战的任务，需要较长的段落级答案。但答案往往是难以构建和评估的，主要有以下两个原因：</p>
+<ol>
+<li>许多问题的答案需要跨多个文档进行推理。例如针对问题：”如何准备在小区或城市买房“，就需要QA系统检索与之相关的多份具体文章，并通过推理构建一个更加复杂的答案，而不仅仅只是总结多份文档。</li>
+<li>现代模型可以生成高度连贯和流畅的答案，但往往是事实错误的答案，甚至可以欺骗非专业的人类。（即生成的幻觉问题）</li>
+</ol>
+<p>非事实性问题（NFQ）中，存在一类INSTRUCTION的问题，这类问题通常以“How to”开头。本文针对该类问题，利用<a target="_blank" rel="noopener" href="https://www.wikihow.com/Main-Page">wikiHow</a><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="一个关于INSTRUCTION问题的网站，其中包含超过23.5万篇涉及广泛主题的文章">[1]</span></a></sup>提出一个新的多文档非事实性问答基准：<strong>WiKiHowQA</strong>。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150501552.png" srcset="/img/loading.gif" lazyload alt="image-20231006150501552" style="zoom:50%;" />
+
+<p>在WikiHowQA的基础上，作者评估了几个基线模型，以此作为模型性能的上限和下限。此外，引入了一个人工评估框架，该框架利用突出显示的相关段落来提高NFQA评估的质量。</p>
+<h2 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h2><h3 id="long-form-question-answering-LFQA"><a href="#long-form-question-answering-LFQA" class="headerlink" title="long-form question answering(LFQA)"></a>long-form question answering(LFQA)</h3><p>LFQA任务为开放式问题提供长答案，且不假设答案分布在多个文档中。与LFQA相关的数据集有ELI5 。文中主要对比了ELI5与WiKiHowQA的区别。</p>
+<p>ELI5来源于Reddit网络论坛，其数据集中包含了272000个如”Explain Like I’m Five”的问题。ELI5将每个问题下投票结果最多的回答视作正确答案，每个问题的参考内容是通过从Common Crawl语料库中与问题相匹配的前100个网页中提取具有高tf-idf<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="TF-IDF（Term Frequency-Inverse Document Frequency）是一种用于文本信息检索与文本挖掘的常用技术，它用于评估一个词语在文档集合中的重要性。TF-IDF的核心思想是衡量一个词语在给定文档中的频率（Term Frequency，TF）与在整个文档集合中的频率（Inverse Document Frequency，IDF）之间的权衡。">[2]</span></a></sup>相似性的句子来生成。与其相比，本文提出的WiKiHowQA从WiKiHow上相应文章的HTML页面解析文本得到参考内容，更具准确性。此外，ELI5有着明显的Train&#x2F;Valid重叠现象，且针对该Benchmark的自动评估和人工评估都存在巨大的挑战。本文提出新的人工评估框架，利用支持文档和避免问题重叠来解决这些问题。ELI5数据集结构如下图所示。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006152722768.png" srcset="/img/loading.gif" lazyload alt="image-20231006152722768" style="zoom: 67%;" />
+
+<p>Nakano在ELI5基础上 ，训练WebGPT模型。该模型通过搜索网络上的相关信息，引用准确可信的来源得到最终答案。其实验部分显示，69%的评估者相较于人工答案，更喜欢WebGPT模型生成的答案。虽然WebGPT数据集很有价值，但到目前为止，其作者只发布了模型的答案和问题，而没有发布支持文档。</p>
+<h3 id="query-based-multi-document-summarization-QF-MDS"><a href="#query-based-multi-document-summarization-QF-MDS" class="headerlink" title="query-based multi-document summarization (QF-MDS)"></a>query-based multi-document summarization (QF-MDS)</h3><p>QF-MDS侧重于为特定的查询创造简洁的摘要，而MD-NFQA侧重于为NFQs生成段落级答案。相较于QF-MDS，MD-NFQA需要更高层次的推理和综合，才能提供完整、准确的答案。与QF-MDS相关的数据集包括： QMDSCNN and QMDSIR datasets、AquaMuse、HowSumm。</p>
+<p><strong>QMDSCNN</strong>数据集来自CNN&#x2F;DailyMail，具有模拟查询的真实摘要；<strong>QMDSIR</strong>数据集来自搜索引擎查询日志，具有真实查询的模拟摘要。</p>
+<p><strong>AquaMuse</strong>来源于Natural Questions数据集和Common Crawl语料库的预处理版本。AquaMuse将来自Natural Questions和Common Crawl语料库的长答案编码为句子嵌入。然后在语料库和长答案之间进行相似性搜索，以找到适合QF-MDS任务的候选文档，类似于ELI5。数据集结构如下图所示。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006153930918.png" srcset="/img/loading.gif" lazyload alt="image-20231006153930918" style="zoom:50%;" />
+
+<p><strong>HowSumm</strong>是一个基于WiKiHow构建的QF-MDS数据集。在WiKiHow中，一篇文章包含多个方法，每个方法由一个标题和几个步骤组成，其中一个步骤包含一个标题和一个文本。此外，每篇文章都引用了一组来源（即参考文献），文章作者使用这些来源来合成 wikiHow 文章。该数据集以引用的文章作为摘要源，wikiHow文章的相应元素作为摘要内容，使用文章标题作为查询，并划分为两个部分：HOWSUMM-METHOD和HOWSUMM-STEP。该数据集与WiKiHowQA类似，但针对的是QF-MDS任务，且并未讨论训练-测试集重叠的问题。此外，数据集中也仅包括源url链接。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006160330752.png" srcset="/img/loading.gif" lazyload alt="image-20231006160330752" style="zoom:50%;" />
+
+<h2 id="数据集：WikiHowQA"><a href="#数据集：WikiHowQA" class="headerlink" title="数据集：WikiHowQA"></a>数据集：WikiHowQA</h2><h3 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h3><ol>
+<li>基于MediaWiki API下载WikiHow网站在2022年1月前发布的23600篇文章</li>
+<li>过滤没有参考文献的文章，得到126711篇文章集合</li>
+<li>将其中20%具有人工撰写的文章摘要的文章，作为目标答案</li>
+<li>基于Wayback Machine 下载所有被引用的HTTML内容源码</li>
+<li>利用两种方式简化HTML源码：提取文本内容；将源码转换为Markdown</li>
+<li>去除缺少HTML链接、HTML为空、HTML简化提取内容为空的文章</li>
+</ol>
+<blockquote ><p>WiKiHow QA数据集结构如下图所示</p></blockquote>
+
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150542764.png" srcset="/img/loading.gif" lazyload alt="image-20231006150542764" style="zoom: 67%;" />
+
+<blockquote alt="question"><p>如何避免训练集和测试集的重叠问题？</p></blockquote>
+
+<p>在基于ELI5研究模型的性能时，Krishna等学者观测到没有证据证明模型是基于检索到的文档生成的答案，他们将其归因于ELI5数据集上训练集、验证集、测试集上的重叠（43.6%）。Lewis等人在不同的QA数据集中都观测到了训练集和测试集的重叠现象。为避免上述问题，本文首先对所有问题进行聚类，基于聚类结果，将属于同一团簇的问题划分至训练集，以便验证集和测试集中有更多不同种类的问题，以避免由于存在许多相似问题而产生的潜在评估偏差。（细节可看论文附录B）</p>
+<h3 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h3><p>WIKIHOWQA数据集包括各种各样的主题，总共有19个，其中最常见的是“健康”、“家庭和花园”、“宠物和动物”以及“计算机和电子产品”。下表比较了WiKiHow QA与其他QF-MDS和LFQA数据集。就问题个数而言，ELI5是最大的数据集，其参考来源中具有最低的平均字数（由于参考来源是问题答案前k个段落检索的集合，故ELI5缺乏部分统计数据），但答案的平均字数高于其他三个数据集（仅低于HOWSUMM-METHOD）。AQUAMUSE数据集的参考来源与答案长度与WIKIHOW QA、HOWSUMM-STEP较为相似，但其问题数量较少。HOWSUMM-METHOD数据集平均每个问题有11个源文档，答案平均每个有31个句子。HOWSUMM-STEP也有大量的源文档。</p>
+<p><img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006150243053.png" srcset="/img/loading.gif" lazyload alt="image-20231006150243053"></p>
+<h3 id="质量验证"><a href="#质量验证" class="headerlink" title="质量验证"></a>质量验证</h3><p>由于WiKiHow QA数据集中的相关段落来源于文章作者引用的网页，可能不包含目标答案的确切单词或短语。因此本文使用自动度量标准和详细的人工评估来进行基准的质量验证。</p>
+<h4 id="Automatic-metrics"><a href="#Automatic-metrics" class="headerlink" title="Automatic metrics"></a>Automatic metrics</h4><p>本文利用N-Gram Percentage metric 作为答案和参考文档之间单词交叉的度量，评估WiKiHow QA数据集中参考文档的相关性。下表显示，本数据集的n-gram百分比分数相对较高，与HOWSUMM-METHOD的结果接近。表中，DUC 03-04是一个高质量的人工制作的汇总数据集，显示了n-gram百分比分数的一个上限水平。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006201225807.png" srcset="/img/loading.gif" lazyload alt="image-20231006201225807" style="zoom:80%;" />
+
+<p>其次，本文报告了WIKIHOW QA的平均覆盖率、密度和压缩指标。这些指标通常用来表征摘要任务的质量和难度。WIKIHOWQA的覆盖率、密度和压缩得分分别为0.89、1.86和81.46。尽管得分相对较低，但通过观察数据集发现，当它们的语义相似度较低时，在某些情况下，答案仍然可以从参考文档中构建出来。如下图所示，例在第一句话的回答问题“如何煮猪里脊肉”，虽然55分钟的目标长度没有提到在任何文档中，但可以通过参考文档中“增加烤时间30分钟在一边”和”25分钟在另一边”推理得出。同样，最后一句中“偶尔翻转”的建议可以从“每1.5到2分钟”转换。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006202256305.png" srcset="/img/loading.gif" lazyload alt="image-20231006202256305" style="zoom:67%;" />
+
+<h4 id="Human-evaluation"><a href="#Human-evaluation" class="headerlink" title="Human evaluation"></a>Human evaluation</h4><p>文章进行了一项众包项目，以验证观察结果和答案构建的可行性，确保数据集的质量。项目的每个参与标注者会得到一份QA文档，一份参考文档，并需要完成三项评估任务：</p>
+<ol>
+<li>标注者将会看到一份包含四个类别的列表，其中一个类别对应该话题在WiKiHow网站上的原始类别，另外三个则从其他18个类别中随机选取。标注者需要将问题分类到适当的类别。未正确分类的样本会丢弃。本任务是为了确保标注者集中注意力，仔细阅读了问题。</li>
+<li>要求标注者阅读QA和参考文档，使用提供的高亮工具标记参考文档中与给定答案直接相关，或可用于推理并得出结论的任何单词或短语。</li>
+<li>要求标注者为提供的文档进行打分（打分标准参考五分制Likert量表，0分代表非常不相关，4分代表非常相关）</li>
+</ol>
+<p>本项目总共随机选取了31份QA文档及其参考文档，产生了104个标注者样本，其中4份样本被丢弃。项目所使用的注释页面简化后如下图所示。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006205856371.png" srcset="/img/loading.gif" lazyload alt="image-20231006205856371" style="zoom:67%;" />
+
+<p>结果显示，评估人员认为大部分问答与参考文档是”Somewhat Relevant“，平均文档相关性得分为2.59。此外，参考其他文献，数据集的Cohen’s Kappa value为0.51，overlap coefficient 为0.65，这些都佐证了数据集的参考文档与QA相关性较强，包含了答案的必要信息。</p>
+<h2 id="基准模型（DPR-BART）"><a href="#基准模型（DPR-BART）" class="headerlink" title="基准模型（DPR+BART）"></a>基准模型（DPR+BART）</h2><p>文章使用Retrieval-Augmented Generation(RAG)架构作为性能评估的参考点，这是 abstractive summarization和QA tasks的常用选择。由于数据集针对每个问题，提供了一个小的支持文档，因此使用DPR作为retriever，去除参考文档中与正确答案不太相关的段落，以便将更多的相关段落匹配到生成器的有限输入空间中。接下来，以BART-large作为生成器，生成基于相关段落的答案。</p>
+<p>在构建模型的输入时，首先使用DPR对支持文档中的段落与问题的相关性对这些段落进行排序并截断，以保留排名中符合BART最大输入长度的最大完整段落数。然后根据它们的源文档对段落进行重新排序，并组合成一个单一的输入字符串。最后，BART-large基于输入字符串生成答案。</p>
+<p>为建立更强的baseline，作者评估了GPT-3的变体：text-davinci-003在零样本设置下的性能。作为一个比BART大400倍的模型，它形成了模型性能的上限。</p>
+<p>文章比较了基于GPT-3的两种prompt类型，一种是直接提问，另外一种在提问基础上，附加了通过DPR检索到的相关段落。下表为 abstractive QA的自动度量标准结果。近期的研究显示，QA的评估指标应与人类判断相关，这是因为NFQA中的答案预计将包含在支持文件中未提到的事实，故表中的度量标准并不能准确反映模型的性能。因此，文章在下一部分提出了一个新的人工评估框架，并报告了通过该框架获得的结果。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006214040405.png" srcset="/img/loading.gif" lazyload alt="image-20231006214040405" style="zoom:80%;" />
+
+<h2 id="人工评估框架"><a href="#人工评估框架" class="headerlink" title="人工评估框架"></a>人工评估框架</h2><p>为进一步确保MD-NFQA评估的可靠性，文章提出了一个简单的人工评估框架，并以此评估benchmark中的基线模型性能。</p>
+<h3 id="Evaluating-Human-Evaluation"><a href="#Evaluating-Human-Evaluation" class="headerlink" title="Evaluating Human Evaluation"></a>Evaluating Human Evaluation</h3><p>最初，实验采取了传统的人工评估方法：向评估人员同时提供由模型生成的答案和人工生成的正确答案。但实验表明，即使由高绩效的评估人员进行评估，模型生成的答案也往往更受欢迎，即使这个答案所描述的相关事实并不准确。</p>
+<p>为此，作者进行了一项众包评估实验。旨在量化标注者在识别回答中的事实不一致性方面的能力。为了实现这个目标，研究人员首先生成了一组经过修改的答案，通过有意引入事实错误来实现。这是通过从WikiHow上的19个问题类别中随机选择5个问题-答案对，然后有系统地对其中4个答案进行各种类型的不准确性修改来完成的，修改细节在表格4中进行了概述，每个答案平均进行了4.5次修改。接下来，研究人员手动审查了这些经过恶化处理的答案，以确保它们在语境相关性和语法正确性方面保持一致。然后，研究进行了两轮独立的评估，共有34名工作者参与，他们对所有的95个QA对进行了评估。为确保评估的公正性，没有工作者同时参与了两轮评估。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231007103559792.png" srcset="/img/loading.gif" lazyload alt="image-20231007103559792" style="zoom:67%;" />
+
+<p>第一轮评估旨在建立标准评估框架的基准性能，评估者在评估屏幕上没有任何相关信息的情况下评估答案。每个任务（HIT）包括一个问题-答案对，其中答案可能已经被恶化。与前面的Human evaluation众包实验类似，任务以问题类别分类的专注测试开始。然后，评估者指出他们对问题的熟悉程度，并在五分制（Likert）量表上评估答案的有用性（从“非常陌生”&#x2F;“非常无用”到“非常熟悉”&#x2F;“非常有用”）。最后，他们的任务是突出答案中他们认为有用或误导的部分，从而提供对答案感知价值的更细致理解。</p>
+<p>第二轮评估具有相同的评估任务，不同之处在于答案中的每个句子都被提供了突出显示的相关段落，评估者可通过单击句子来访问。每个句子的相关段落根据DPR的相关性排名进行选择，其总长度不超过5000个字符。段落按其原始顺序显示，并按源文档分组。段落突出显示旨在模拟在NFQA评估期间用户的视线。评估者可以自由地查看段落，同时确定答案的有用性并选择答案中有用或误导的部分。</p>
+<p><del>选择”点击句子提供突出显示的相关段落“这一形式，主要是基于以下几个因素。首先，为评估者提供了更具互动性和参与性的体验，使之能够深入研究每个句子的上下文。其次，它为评估人员提供了关于每个句了的相关性的清晰视觉线索，从而促进了更准确和高效的评估过程。考虑到评估人员经常会因为不熟悉问题主题或潜在的干扰而面临的挑战，本实验旨在通过提供相关段落作为辅助信息来增强评估者以更高准确性进行评估的能力。通过试运行和作者之间的讨论比较了不同的文章呈现形式后，发现相比于其他如视线跟踪等反馈机制，这种方法是最为简单和有效的。（使用这种方式的原因）</del></p>
+<p>研究中使用一种度量标准，用来衡量识别事实不一致性的能力，即”Inconsistency Detection Rate”（IDR，不一致性检测率）。IDR定义为已识别的deterioration（指回答中的错误或不准确部分）的平均百分比。如果某个deterioration被评估员标记为误导性的一部分，那么它就被标记为已识别。研究结果表明，在第一轮和第二轮评估中，IDR存在显著差异（学生t检验，t-<em>statistic</em> &#x3D;2.57，p &lt; 0.01），IDR分别为0.21和0.35。此外，研究还计算了假阳性IDR的数值。假阳性被定义为评估员错误标记为误导性的答案。第一轮评估包括四个假阳性，第二轮评估包括两个。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231007110413872.png" srcset="/img/loading.gif" lazyload alt="image-20231007110413872" style="zoom:80%;" />
+
+<p>尽管问题熟悉度分数在两轮评估之间保持一致，但IDR在第二轮评估中显著提高，而且这种提高在高熟悉度和低熟悉度的情况下都是持续的且具有统计学显著性（学生t检验，t-<em>statistic</em> &#x3D;2.18，p &lt; 0.05）。这表明，与特定问题的熟悉程度无关，参与者能够在访问相关信息源的情况下更有效地进行评估。正如图4所示，第二轮评估中几乎所有恶化类型的检测都有所改善。值得注意的是，对于句子否定和数字交换，检测率分别增加了131%和158%。这些增加是经过学生t检验验证的，具有统计学显著性（句子否定：t-<em>statistic</em>&#x3D;4.2，p &lt; 0.01；数字交换：t-<em>statistic</em>&#x3D;3.18，p &lt; 0.01）。</p>
+<h3 id="How-Good-Are-The-Baselines-Really"><a href="#How-Good-Are-The-Baselines-Really" class="headerlink" title="How Good Are The Baselines, Really?"></a>How Good Are The Baselines, Really?</h3><p>作者基于上面的人工评估框架，进行实验，旨在评估前文提到的基线模型的性能上下界限。具体来说，研究人员通过A&#x2F;B测试<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="个人理解就是一个对比模型">[3]</span></a></sup>（Krishna et al., 2021）来比较不同模型，同时将突出显示的相关段落作为信息参考源。在将问题分类为关注度任务后，评估员被要求评估一对答案的实用性：一个是标准答案，一个是模型生成的答案，并从中并选择更实用的答案。答案以随机顺序呈现，不透露来源。每个答案中的每个句子都提供了基于DPR模型排名的相关段落，以允许评估者更准确地评估事实一致性。</p>
+<p>在这个实验中，有28名参与者对100个随机测试问题的标准答案进行了评估，与DPR + BART、text-davinci-003和DPR + text-davinci-003生成的答案进行对比。为了消除潜在的偏见，工作者没有评估相同的问题两次。</p>
+<img src="C:\Users\34588\AppData\Roaming\Typora\typora-user-images\image-20231006214040405.png" srcset="/img/loading.gif" lazyload alt="image-20231006214040405" style="zoom:80%;" />
+
+<p>人工评估结果列在表3中。所有差异都在统计学上具有显著性（学生t检验，p &lt; 0.01）。与最初的自动评估相比，较简单的DPR + BART模型得分较低，但在某些情况下仍然优于标准答案。与自动评估不同，人工评估支持了我们最初的观察，即text-davinci-003生成的答案质量远高于BART（因为其模型参数更多，模型性能应当更强）。当提供相关参考段落时，text-davinci-003根据人类判断生成了明显更好的答案，这突显了WIKIHOWQA中参考文档的价值。尽管text-davinci-003生成了在语法上合理且逻辑上正确的答案，但我们的人工评估揭示了它在事实一致性和总体连贯性方面经常失败，特别是对于需要逐步说明的问题。尽管在某些情况下评估员仍然更喜欢text-davinci-003生成的答案，但提出的评估框架应进一步改进，以更好地引导评估员做出判断。但仍存在两方面问题：首先，提供的相关段落并不总是包含了验证答案所需的信息；其次，模型答案的呈现和流畅性会误导评估员，即使整体事实并不成立。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li><p>新数据集和基准测试：作者介绍了一个新的dataset和Benchmark: WIKIHOW QA，该数据集从WikiHow网站获取，包含了关于“How to”问题的段落级别答案。这个数据集填补了当前可用资源和MD-NFQA的评估测试环境的关键空白。</p>
+</li>
+<li><p>基准性能评估：作者提供了基线性能基准（DPR + BART、text-davinci-003、DPR + text-davinci-003），用于评估不同模型在WIKIHOWQA数据集上的表现。</p>
+</li>
+<li><p>信息增强的人工评估框架：研究引入并使用了一种信息增强<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="对Answer的每个句子，附加高亮的参考文档（support document），增强评估人员对答案背景的了解">[4]</span></a></sup>的人工评估框架，提高了QA注释的可靠性，以更好地评估模型的性能。</p>
+</li>
+</ol>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>一个关于INSTRUCTION问题的网站，其中包含超过23.5万篇涉及广泛主题的文章
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span>TF-IDF（Term Frequency-Inverse Document Frequency）是一种用于文本信息检索与文本挖掘的常用技术，它用于评估一个词语在文档集合中的重要性。TF-IDF的核心思想是衡量一个词语在给定文档中的频率（Term Frequency，TF）与在整个文档集合中的频率（Inverse Document Frequency，IDF）之间的权衡。
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>个人理解就是一个对比模型
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span>对Answer的每个句子，附加高亮的参考文档（support document），增强评估人员对答案背景的了解
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2023/10/22/2023.acl-long.290/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/22/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

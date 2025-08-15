@@ -1,4 +1,4 @@
-baseURL = 'https://github.com/cyuQ1n.github.io'
+baseURL = 'https://cyuQ1n.github.io/'
 languageCode = 'zh-cn'
 title = '我的个人网站'
 theme = 'PaperMod'
@@ -62,7 +62,7 @@ theme = 'PaperMod'
 
   [[params.socialIcons]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://github.com/cyuQ1n"
   [[params.socialIcons]]
     name = "email"
     url = "mailto:your-email@example.com"

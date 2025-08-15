@@ -33,6 +33,7 @@ showReadingTime: false
 
 - 📧 Email: your-email@example.com
 - 💼 LinkedIn: [Your LinkedIn](https://linkedin.com)
-- 🐙 GitHub: [Your GitHub](https://github.com)
+- 🐙 GitHub: [@cyuQ1n](https://github.com/cyuQ1n)
+- 🌐 Website: [cyuQ1n.github.io](https://cyuQ1n.github.io)
 
 感谢你的访问！

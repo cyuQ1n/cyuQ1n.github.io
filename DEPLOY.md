@@ -1,20 +1,21 @@
 # 部署到 GitHub Pages
 
-## 方式一：部署为用户主站 (推荐)
+## 🚀 当前部署信息
 
-创建 `https://YOUR_USERNAME.github.io/` 这样的个人主站：
+- **网站地址**: https://cyuQ1n.github.io/
+- **GitHub仓库**: https://github.com/cyuQ1n/cyuQ1n.github.io
+- **部署状态**: [![Deploy Status](https://github.com/cyuQ1n/cyuQ1n.github.io/actions/workflows/hugo.yml/badge.svg)](https://github.com/cyuQ1n/cyuQ1n.github.io/actions)
 
-### 1. 创建特殊命名的仓库
-- 登录 GitHub
-- 创建新仓库，名称必须是：`YOUR_USERNAME.github.io`
-- 例如：如果你的用户名是 `john`，仓库名就是 `john.github.io`
-- 设为公开仓库（Public）
+## 📝 快速部署指南
 
-### 2. 更新配置
+### 一键部署（推荐）
 ```bash
-# 编辑 hugo.toml
-# 将 baseURL 改为：
-baseURL = 'https://YOUR_USERNAME.github.io/'
+./quick-deploy.sh
+```
+
+### 交互式部署
+```bash
+./deploy.sh
 ```
 
 ### 3. 推送代码

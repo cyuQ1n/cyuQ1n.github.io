@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>我的个人网站</title><link>https://cyuQ1n.github.io/</link><description>Recent content on 我的个人网站</description><image><title>我的个人网站</title><url>https://cyuQ1n.github.io/</url><link>https://cyuQ1n.github.io/</link></image><generator>Hugo -- 0.138.0</generator><language>zh-cn</language><lastBuildDate>Fri, 15 Aug 2025 12:00:00 +0800</lastBuildDate><atom:link href="https://cyuQ1n.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>现代Web开发技术栈</title><link>https://cyuQ1n.github.io/posts/web-development/</link><pubDate>Fri, 15 Aug 2025 12:00:00 +0800</pubDate><guid>https://cyuQ1n.github.io/posts/web-development/</guid><description>介绍现代Web开发的主流技术栈和最佳实践。</description></item><item><title>数学公式演示：LaTeX支持</title><link>https://cyuQ1n.github.io/posts/math-demo/</link><pubDate>Fri, 15 Aug 2025 11:00:00 +0800</pubDate><guid>https://cyuQ1n.github.io/posts/math-demo/</guid><description>演示如何在博客中使用LaTeX数学公式。</description></item><item><title>我的第一篇博客</title><link>https://cyuQ1n.github.io/posts/first-post/</link><pubDate>Fri, 15 Aug 2025 10:00:00 +0800</pubDate><guid>https://cyuQ1n.github.io/posts/first-post/</guid><description>欢迎来到我的个人博客！这是我的第一篇文章。</description></item><item><title>关于我</title><link>https://cyuQ1n.github.io/about/</link><pubDate>Fri, 15 Aug 2025 00:00:00 +0000</pubDate><guid>https://cyuQ1n.github.io/about/</guid><description>&lt;h1 id="欢迎来到我的个人网站">欢迎来到我的个人网站！&lt;/h1>
+&lt;p>我是一名热爱技术和创新的开发者。在这个网站上，我会分享我的技术文章、项目经验和学习心得。&lt;/p>
+&lt;h2 id="我的兴趣领域">我的兴趣领域&lt;/h2>
+&lt;ul>
+&lt;li>🚀 软件开发&lt;/li>
+&lt;li>🤖 人工智能与机器学习&lt;/li>
+&lt;li>📊 数据科学&lt;/li>
+&lt;li>🌐 Web开发&lt;/li>
+&lt;li>📱 移动应用开发&lt;/li>
+&lt;/ul>
+&lt;h2 id="技能栈">技能栈&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>编程语言&lt;/strong>: Python, JavaScript, Java, C++&lt;/li>
+&lt;li>&lt;strong>前端框架&lt;/strong>: React, Vue.js, Next.js&lt;/li>
+&lt;li>&lt;strong>后端框架&lt;/strong>: Django, FastAPI, Express.js&lt;/li>
+&lt;li>&lt;strong>数据库&lt;/strong>: PostgreSQL, MongoDB, Redis&lt;/li>
+&lt;li>&lt;strong>工具与平台&lt;/strong>: Docker, Kubernetes, Git, AWS&lt;/li>
+&lt;/ul>
+&lt;h2 id="联系方式">联系方式&lt;/h2>
+&lt;p>如果你想和我交流或合作，欢迎通过以下方式联系我：&lt;/p>
+&lt;ul>
+&lt;li>📧 Email: &lt;a href="mailto:your-email@example.com">your-email@example.com&lt;/a>&lt;/li>
+&lt;li>💼 LinkedIn: &lt;a href="https://linkedin.com">Your LinkedIn&lt;/a>&lt;/li>
+&lt;li>🐙 GitHub: &lt;a href="https://github.com/cyuQ1n">@cyuQ1n&lt;/a>&lt;/li>
+&lt;li>🌐 Website: &lt;a href="https://cyuQ1n.github.io">cyuQ1n.github.io&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>感谢你的访问！&lt;/p></description></item></channel></rss>

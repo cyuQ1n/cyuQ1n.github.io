@@ -29,8 +29,8 @@ choco install hugo-extended
 
 ```bash
 # 克隆仓库
-git clone https://github.com/YOUR_GITHUB_USERNAME/my-website.git
-cd my-website
+git clone https://github.com/YOUR_GITHUB_USERNAME/YOUR_GITHUB_USERNAME.github.io.git
+cd YOUR_GITHUB_USERNAME.github.io
 
 # 启动开发服务器
 hugo server -D

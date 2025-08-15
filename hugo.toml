@@ -1,4 +1,4 @@
-baseURL = 'https://YOUR_GITHUB_USERNAME.github.io/my-website/'
+baseURL = 'https://YOUR_GITHUB_USERNAME.github.io/'
 languageCode = 'zh-cn'
 title = '我的个人网站'
 theme = 'PaperMod'
